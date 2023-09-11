@@ -1,36 +1,34 @@
-# Example Mod
+# got damn
+you want to get to the moon? well this is a mod for you
+# requirements
+babric\
+halplibe\
+prismaticlibe
+## features
+cool decoration blocks\
+epic space suit\
+the moon\
+cheese\
+moon cheese\
+cheeseburger\
+penguins, they don't live on the moon though\
+cloth armor for all your roleplaying needs\
+delicious pancakes\
+and more!
+## what? there's more?
+no there isn't, i don't know where you heard that
+## credits
+Lexal
+- main guy (idea, moon dimension, art)
 
-Template for making Babric mods for BTA!
+UselessBullets
+- moon features (gravity, suffocation, star rendering, music), penguins, mixins, fixing my terrible code
+## pictures
+*these images are out of date circa the 0.1.0 update
+![image](https://github.com/Lexal1/BTBTA/assets/86933786/4804aa34-8e8c-4411-a8e2-0ae5da632954)
+![image](https://github.com/Lexal1/BTBTA/assets/86933786/b9f1d0e6-8722-4553-b2bc-3e53ad9359fa)
+![image](https://github.com/Lexal1/BTBTA/assets/86933786/272a64f5-cbfc-473e-95de-9acdbda9551b)
+![image](https://github.com/Lexal1/BTBTA/assets/86933786/2018c9fd-092c-4f8a-85eb-ec1ac4f7f553)
+![image](https://github.com/Lexal1/BTBTA/assets/86933786/57df9374-2516-4bc9-bb16-aafff93b814a)
+*if you take any cool pictures, send them at me in the BTA modding discord! i'd love to see them
 
-**Note: *DO NOT fork this repository unless you want to contribute!***
-
-## Prerequisites
-- JDK for Java 17 ([Eclipse Temurin](https://adoptium.net/temurin/releases/) recommended)
-- IntelliJ IDEA
-- Minecraft Development plugin (Optional, but highly recommended)
-
-## Setup instructions
-   
-
-1. Click the `Use this template` button on this repo's page above. Choose `Create a new respository`, you will be redirected to a new page. Enter your repo's name and description, and hit `Create repository`.  
-   To get your project, open IntelliJ IDEA and click `Get from VCS`. Select `Repository URL` and enter your repo's url
-
-2. After the project has finished importing, close it and open it again.  
-   If that does not work, open the right sidebar with `Gradle` on it, open `Tasks` > `fabric` and run `ideaSyncTask`.
-
-3. Create a new run configuration by going in `Run > Edit Configurations`.  
-   Then click on the plus icon and select Gradle. In the `Tasks and Arguments` field enter `build`.  
-   Running it will build your finished jar files and put them in `build/libs/`.
-
-4. While in the same place, select the Client and Server run configurations and edit the VM options under the SDK selection.
-
-   ![image](https://github.com/Turnip-Labs/bta-example-mod/assets/58854399/2d45551d-83e3-4a75-b0e6-acdbb95b8114)  
-
-   Click the double arrow icon to expand the list, and append `-Dfabric.gameVersion=1.7.7.0` to the end.  
-
-   ![image](https://github.com/Turnip-Labs/bta-example-mod/assets/58854399/e4eb8a22-d88a-41ef-8fb2-e37c66e18585)
-
-5. Lastly, open `File` > `Settings` and head to `Build, Execution, Development` > `Build Tools` > `Gradle`.  
-   Make sure `Build and run using` and `Run tests using` is set to `Gradle`.
-
-6. Done! Now, all that's left is to change every mention of `examplemod` and `turniplabs` to your own mod id and mod group, respectively. Happy modding!
