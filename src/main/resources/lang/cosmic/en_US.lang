@@ -1,0 +1,93 @@
+###blocks
+tile.cosmic.ironplating.name=Iron Plating
+tile.cosmic.ironplating.desc=A block plated with durable iron.
+tile.cosmic.goldplating.name=Gold Plating
+tile.cosmic.goldplating.desc=A block plated with soft gold.
+tile.cosmic.catwalk.name=Catwalk
+tile.cosmic.catwalk.desc=Keeps you from falling into deep pits.
+tile.cosmic.moonstone.name=Moonstone
+tile.cosmic.moonstone.desc=Not made of cheese.
+tile.cosmic.moonturf.name=Moonturf
+tile.cosmic.moonturf.desc=One small block for man.
+tile.cosmic.mooncobblestone.name=Moon Cobblestone
+tile.cosmic.mooncobblestone.desc=Moonstone, smashed apart and reconstituted.
+tile.cosmic.cheesewheel.name=Cheese Wheel
+tile.cosmic.cheesewheel.desc=It's wheely good!
+tile.cosmic.portal.moon.name=Moon Portal
+tile.cosmic.portal.moon.desc="Is that a goddamn moon portal" - Jonkadelic
+tile.cosmic.mooniron.name=Moonstone Iron
+tile.cosmic.mooniron.desc=Iron nuggets embedded in moonstone.
+tile.cosmic.moongold.name=Moonstone Gold
+tile.cosmic.moongold.desc=Gold nuggets embedded in moonstone.
+tile.cosmic.cheeseore.name=Cheese Ore
+tile.cosmic.cheeseore.desc=I knew it!
+tile.cosmic.moonsnow.name=Surface Moon Dust
+tile.cosmic.moonsnow.desc=A great portal conductor!
+tile.cosmic.torch.unlit.name=Extinguished Torch
+tile.cosmic.torch.unlit.desc=Does not help light the way.
+tile.cosmic.torch.glowstone.name=Glowstone Torch
+tile.cosmic.torch.glowstone.desc=Helps light the way in less-than-ideal atmospheres.
+tile.cosmic.whitetile.name=White Tile
+tile.cosmic.whitetile.desc=A decorative white tile.
+tile.cosmic.blacktile.name=Black Tile
+tile.cosmic.blacktile.desc=A decorative black tile.
+tile.cosmic.starsteelblock.name=Block of Star Steel
+tile.cosmic.starsteelblock.desc=A solid block of star steel. My, aren't you special.
+
+#tools
+item.cosmic.tool.sword.star.name=Star Sword
+item.cosmic.tool.sword.star.desc=A steel sword imbued with the power of the stars.
+item.cosmic.tool.pickaxe.star.name=Star Pickaxe
+item.cosmic.tool.pickaxe.star.desc=A steel pickaxe imbued with the power of the stars.
+item.cosmic.tool.axe.star.name=Star Axe
+item.cosmic.tool.axe.star.desc=A steel axe imbued with the power of the stars.
+item.cosmic.tool.shovel.star.name=Star Shovel
+item.cosmic.tool.shovel.star.desc=A steel shovel imbued with the power of the stars.
+item.cosmic.tool.hoe.star.name=Star Hoe
+item.cosmic.tool.hoe.star.desc=A steel hoe imbued with the power of the stars.
+
+###armors
+
+#space armor
+item.cosmic.armor.helmet.space.name=Space Helmet
+item.cosmic.armor.helmet.space.desc=Keeps your head from exploding.
+item.cosmic.armor.chestplate.space.name=Space Suit
+item.cosmic.armor.chestplate.space.desc=Not the best thing to wear to a party.
+item.cosmic.armor.leggings.space.name=Space Leggings
+item.cosmic.armor.leggings.space.desc=Look who's on the moon now, Mr. Fancy Pants.
+item.cosmic.armor.boots.space.name=Space Boots
+item.cosmic.armor.boots.space.desc=One giant leap for mankind!
+
+#crash armor
+item.cosmic.armor.boots.crash.name=Crash Landing Boots
+item.cosmic.armor.boots.crash.desc=Spongy but fragile.
+
+###items
+item.cosmic.cheese.name=Cheese
+item.cosmic.cheese.desc=What self-respecting moon doesn't have cheese?!
+item.cosmic.burger.name=Cheeseburger
+item.cosmic.burger.desc=Have it your way!
+item.cosmic.moondust.name=Moon Dust
+item.cosmic.moondust.desc=Turns out, ground up moon rocks are pure poison.
+item.cosmic.ore.meteor.name=Meteoric Ore
+item.cosmic.ore.meteor.desc=Ore mined from a fallen meteor.
+item.cosmic.crude.starsteel.name=Crude Star Steel
+item.cosmic.crude.starsteel.desc=Melted down meteor material.
+item.cosmic.ingot.starsteel.name=Star Steel
+item.cosmic.ingot.starsteel.desc=Steel imbued with the power of the stars.
+
+
+
+
+
+
+###misc
+dimension.moon.name=Moon
+worldType.moon.default.name=Moon
+worldType.moon.default.desc=Start on the Moon,\nan inhospitable desert\norbiting the Overworld.
+
+
+
+#optionals
+item.cosmic.spawn.egg.spacezombie.name=Space Zombie Spawn Egg
+item.cosmic.spawn.egg.spaceskeleton.name=Space Skeleton Spawn Egg
