@@ -24,9 +24,9 @@ public class CosmicCraft implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     private void handleConfig() {
         Properties prop = new Properties();
-        prop.setProperty("starting_block_id","3000");
-        prop.setProperty("starting_item_id","20000");
-        prop.setProperty("starting_spawneggs_item_id","20200");
+        prop.setProperty("starting_block_id","3100");
+        prop.setProperty("starting_item_id","21100");
+        prop.setProperty("starting_spawneggs_item_id","21200");
         ConfigHandler config = new ConfigHandler(MOD_ID,prop);
         UtilIdRegistrar.initIds(
                 config.getInt("starting_block_id"),
