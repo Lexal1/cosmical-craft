@@ -49,7 +49,7 @@ public class ChunkDecoratorMoon implements ChunkDecorator {
             zf = z + rand.nextInt(16);
             (new WorldFeatureMoonOre(ModBlocks.moongold.id, 4, false)).generate(this.world, rand, xf, yf, zf);
         }
-        if (rand.nextInt(5) == 0) {
+        if (rand.nextInt(25) == 0) {
             int i18 = x + rand.nextInt(16) + 8;
             int i23 = z + rand.nextInt(16) + 8;
             int i21 = this.world.getHeightValue(i18, i23);

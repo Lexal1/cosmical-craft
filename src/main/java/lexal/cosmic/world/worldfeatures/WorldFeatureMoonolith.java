@@ -12,28 +12,14 @@ import java.util.Random;
 public class WorldFeatureMoonolith extends WorldFeature {
     @Override
     public boolean generate(World world, Random random, int x, int y, int z) {
-        for(int chance = 0; chance < 20; ++chance) {
-            int width = x + 15;
-            int height = y;
-            int depth = z + 9;
-            if (world.isAirBlock(width, y, width)) {
-                int l1 = 2 + random.nextInt(random.nextInt(15) + 13);
-                int m1 = 2 + random.nextInt(random.nextInt(15) + 13);
-                int n1 = 2 + random.nextInt(random.nextInt(15) + 9);
-
-                for(int i2 = 0; i2 < l1; ++i2) {
-                    if (Block.obsidian.canBlockStay(world, width + i2, height, width)) {
-                        world.setBlock(width + i2, height, width, Block.obsidian.id);
-                    }
-                }
-                for(int j2 = 0; j2 < m1; ++j2) {
-                    if (Block.obsidian.canBlockStay(world, width, height + j2, width)) {
-                        world.setBlock(width, height + j2, width, Block.obsidian.id);
-                    }
-                }
-                for(int k2 = 0; k2 < n1; ++k2) {
-                    if (Block.obsidian.canBlockStay(world, width, height, width + k2)) {
-                        world.setBlock(width, height, width + k2, Block.obsidian.id);
+        int width = 10 + random.nextInt(5);
+        int height = 15 + random.nextInt(20);
+        int depth = 10 + random.nextInt(5);
+        for (int dy = y - 10; dy <= y + height; dy++) {
+            for (int dx = x; dx <= x + width; dx++) {
+                for (int dz = z; dz <= z + depth; dz++) {
+                    if (Block.obsidian.canBlockStay(world, dx, dy, dz)){
+                        world.setBlock(dx,dy,dz, Block.obsidian.id);
                     }
                 }
             }
