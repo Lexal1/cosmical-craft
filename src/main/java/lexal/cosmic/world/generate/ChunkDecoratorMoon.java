@@ -2,6 +2,7 @@ package lexal.cosmic.world.generate;
 
 import lexal.cosmic.block.ModBlocks;
 import lexal.cosmic.world.worldfeatures.WorldFeatureMoonOre;
+import lexal.cosmic.world.worldfeatures.WorldFeatureMoonolith;
 import net.minecraft.core.block.BlockSand;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.chunk.Chunk;
@@ -47,6 +48,12 @@ public class ChunkDecoratorMoon implements ChunkDecorator {
             yf = minY + rand.nextInt(rangeY - 16);
             zf = z + rand.nextInt(16);
             (new WorldFeatureMoonOre(ModBlocks.moongold.id, 4, false)).generate(this.world, rand, xf, yf, zf);
+        }
+        if (rand.nextInt(5) == 0) {
+            int i18 = x + rand.nextInt(16) + 8;
+            int i23 = z + rand.nextInt(16) + 8;
+            int i21 = this.world.getHeightValue(i18, i23);
+            new WorldFeatureMoonolith().generate(this.world, rand, i18, i21, i23);
         }
     }
 }
