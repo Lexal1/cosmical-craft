@@ -11,9 +11,6 @@ the moon\
 cheese\
 moon cheese\
 cheeseburger\
-penguins, they don't live on the moon though\
-cloth armor for all your roleplaying needs\
-delicious pancakes\
 and more!
 ## what? there's more?
 no there isn't, i don't know where you heard that
