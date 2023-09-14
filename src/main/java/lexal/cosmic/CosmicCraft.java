@@ -18,6 +18,8 @@ import useless.prismaticlibe.helper.SoundHelper;
 
 import java.util.Properties;
 
+import static net.minecraft.core.item.tool.ItemToolPickaxe.miningLevels;
+
 
 public class CosmicCraft implements ModInitializer {
     public static final String MOD_ID = "cosmic";
@@ -46,6 +48,9 @@ public class CosmicCraft implements ModInitializer {
         ModBlockTags.register();
 
         ModBlocks.register();
+        miningLevels.put(ModBlocks.meteorblock,3);
+        miningLevels.put(ModBlocks.meteorore,3);
+        miningLevels.put(ModBlocks.starsteelblock,4);
         ModItems.register();
         ModCraftingManager.register();
 

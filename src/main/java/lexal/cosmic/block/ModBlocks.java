@@ -167,7 +167,7 @@ public class ModBlocks {
             .setResistance(3.0f)
             .setTextures("meteor_ore.png")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
-            .build(new BlockMoonstone("meteorore", UtilIdRegistrar.nextIdBlock(),Material.stone));
+            .build(new BlockMeteorOre("meteorore", UtilIdRegistrar.nextIdBlock(),Material.stone));
 
 
     static {

@@ -33,6 +33,10 @@ tile.cosmic.blacktile.name=Black Tile
 tile.cosmic.blacktile.desc=A decorative black tile.
 tile.cosmic.starsteelblock.name=Block of Star Steel
 tile.cosmic.starsteelblock.desc=A solid block of star steel. My, aren't you special.
+tile.cosmic.meteorblock.name=Meteoric Stone
+tile.cosmic.meteorblock.desc=Tough, dense stone from the depths of space.
+tile.cosmic.meteorore.name=Meteor Ore
+tile.cosmic.meteorore.desc=Meteorite nuggets embedded in meteoric stone.
 
 #tools
 item.cosmic.tool.sword.star.name=Star Sword

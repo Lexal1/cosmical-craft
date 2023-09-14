@@ -35,7 +35,7 @@ public class ModItems {
     public static final Item bucketAir = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemBucketGas("Air Bucket", UtilIdRegistrar.nextIdItem(), ModBlocks.gasAirFlowing.id, 255), "bucket.air").setIconCoord(10,4);
 
     //tools
-    public static final ToolMaterial starsteeltool = new ToolMaterial().setDurability(5068).setEfficiency(10f, 20f).setMiningLevel(3).setBlockHitDelay(5).setDamage(5);
+    public static final ToolMaterial starsteeltool = new ToolMaterial().setDurability(5068).setEfficiency(10f, 20f).setMiningLevel(4).setBlockHitDelay(3).setDamage(6);
     public static final Item toolSwordStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolSword("starsteelsword",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.sword.star","meteor_sword.png");
     public static final Item toolPickaxeStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolPickaxe("starsteelpick",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.pickaxe.star","meteor_pickaxe.png");
     public static final Item toolAxeStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolAxe("starsteelaxe",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.axe.star","meteor_axe.png");
