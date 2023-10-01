@@ -31,7 +31,7 @@ public class RenderGlobalMixin implements LevelListener {
                     ordinal = 1))
     private void renderEarthImage(float renderPartialTicks,CallbackInfo cbi){
         if (this.worldObj.getWorldType() instanceof WorldTypeMoon){ // Replace moon texture with earth when on the moon
-            GL11.glBindTexture(3553, this.renderEngine.getTexture("/assets/btb/terrain/earth.png"));
+            GL11.glBindTexture(3553, this.renderEngine.getTexture("/assets/cosmic/terrain/earth.png"));
         }
     }
 
