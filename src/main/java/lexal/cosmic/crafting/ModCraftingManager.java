@@ -19,35 +19,51 @@ public class ModCraftingManager {
         RecipeHelper.Crafting.createShapelessRecipe(ModItems.starsteel, 1, new Object[]{Item.ingotSteel,ModItems.crudestarsteel,ModItems.crudestarsteel,ModItems.crudestarsteel,ModItems.crudestarsteel});
 
         //block recipes
-        RecipeHelper.Crafting.createRecipe(ModBlocks.catwalk, 8, new Object[]{
-                "CCC",
-                "I I",
-                'I', Item.ingotIron,
-                'C', Item.chainlink});
+
+        RecipeHelper.Crafting.createRecipe(ModBlocks.catwalk, 3, new Object[]{
+                "ICI",
+                'C', Item.chainlink,
+                'I', Item.ingotIron});
+
         RecipeHelper.Crafting.createRecipe(ModBlocks.cheesewheel, 1, new Object[]{
                 "CC",
                 "CC",
                 'C', ModItems.cheese});
-        RecipeHelper.Crafting.createRecipe(ModBlocks.ironplating, 12, new Object[]{
-                "I I",
-                " B ",
-                "I I",
-                'B', Block.blockIron,
+
+        RecipeHelper.Crafting.createRecipe(ModBlocks.ironplating, 4, new Object[]{
+                " I ",
+                "ISI",
+                " I ",
+                'S', Block.stonePolished,
                 'I', Item.ingotIron});
-        RecipeHelper.Crafting.createRecipe(ModBlocks.goldplating, 12, new Object[]{
-                "I I",
-                " B ",
-                "I I",
-                'B', Block.blockGold,
+
+        RecipeHelper.Crafting.createRecipe(ModBlocks.whitetile, 8, new Object[]{
+                "MIM",
+                "ISI",
+                "MIM",
+                'S', Block.stonePolished,
+                'I', Item.ingotIron,
+                'M', ModItems.moondust});
+
+        RecipeHelper.Crafting.createRecipe(ModBlocks.goldplating, 4, new Object[]{
+                " I ",
+                "ISI",
+                " I ",
+                'S', Block.stonePolished,
                 'I', Item.ingotGold});
+
+        RecipeHelper.Crafting.createRecipe(ModBlocks.blacktile, 4, new Object[]{
+                " I ",
+                "ISI",
+                " I ",
+                'S', Block.stonePolished,
+                'I', Item.ingotSteelCrude});
+
         RecipeHelper.Crafting.createRecipe(ModBlocks.glowstoneTorch, 3, new Object[]{
                 "G",
                 "S",
                 'S', Item.stick,
                 'G', Item.dustGlowstone});
-
-        RecipeHelper.Crafting.createShapelessRecipe(ModBlocks.whitetile, 2, new Object[]{Block.stonePolished,ModItems.moondust,ModItems.moondust,ModItems.moondust,ModItems.moondust});
-        RecipeHelper.Crafting.createShapelessRecipe(ModBlocks.blacktile, 16, new Object[]{ModBlocks.whitetile,Item.ingotSteel,Item.ingotSteel,Item.ingotSteel,Item.ingotSteel});
 
         RecipeHelper.Crafting.createRecipe(ModBlocks.starsteelblock, 1, new Object[]{
                 "III",
@@ -55,7 +71,7 @@ public class ModCraftingManager {
                 "III",
                 'I', ModItems.starsteel});
 
-
+        //smelting recipes
 
         RecipeHelper.Blasting.createRecipe(ModItems.crudestarsteel,ModItems.rawmeteor);
 
@@ -71,8 +87,8 @@ public class ModCraftingManager {
         RecipeHelper.Smelting.createRecipe(ModBlocks.moonstone,ModBlocks.mooncobblestone);
         RecipeHelper.Blasting.createRecipe(ModBlocks.moonstone,ModBlocks.mooncobblestone);
 
-
         //armor recipes
+
         RecipeHelper.Crafting.createRecipe(ModItems.armorHelmetSpace, 1, new Object[]{
                 "CIC",
                 "WLW",

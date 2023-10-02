@@ -5,6 +5,7 @@ import lexal.cosmic.UtilIdRegistrar;
 import lexal.cosmic.item.ItemGasLayer;
 import net.minecraft.client.render.block.model.BlockModelRenderBlocks;
 import net.minecraft.client.sound.block.BlockSound;
+import net.minecraft.client.sound.block.BlockSounds;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -27,8 +28,8 @@ public class ModBlocks {
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("goldplating", UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block moonturf = new BlockBuilder(CosmicCraft.MOD_ID)
-            .setBlockSound(new BlockSound("step.sand", "step.stone", 1.0f, 1.0f))
-            .setHardness(2.0f)
+            .setBlockSound(BlockSounds.CLOTH)
+            .setHardness(1.5f)
             .setResistance(1.5f)
             .setTextures("moon_turf.png")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
@@ -42,8 +43,7 @@ public class ModBlocks {
     public static final Block catwalk = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(1.5f)
             .setResistance(1.5f)
-            .setTopBottomTexture(7,19)
-            .setSideTextures("catwalk_side.png")
+            .setTextures(7,19)
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockCatwalk("catwalk", UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block mooncobblestone = new BlockBuilder(CosmicCraft.MOD_ID)
@@ -75,9 +75,10 @@ public class ModBlocks {
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new BlockOreGold("moongold", UtilIdRegistrar.nextIdBlock(), Material.stone));
     public static final Block moonsnow = new BlockBuilder(CosmicCraft.MOD_ID)
-            .setHardness(0.5f)
+            .setHardness(0.1f)
             .setResistance(0.0f)
             .setTextures("moon_turf.png")
+            .setBlockSound(BlockSounds.CLOTH)
             .setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.PLACE_OVERWRITES, BlockTags.BROKEN_BY_FLUIDS, ModBlockTags.GAS_DESTROYS)
             .build(new BlockMoonSnow("moonsnow", UtilIdRegistrar.nextIdBlock(), Material.topSnow));
 
@@ -100,6 +101,7 @@ public class ModBlocks {
             .setLuminance(8)
             .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PREVENT_MOB_SPAWNS)
             .setBlockModel(new BlockModelRenderBlocks(2))
+            .setBlockSound(BlockSounds.WOOD)
             .build(new BlockTorch("torch.glowstone",UtilIdRegistrar.nextIdBlock()));
     public static final Block whitetile = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.0f)

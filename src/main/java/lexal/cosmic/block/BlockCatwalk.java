@@ -6,8 +6,7 @@ import net.minecraft.core.block.material.Material;
 public class BlockCatwalk extends Block {
     public BlockCatwalk(String key, int id, Material material) {
         super(key, id, material);
-        setBlockBounds(0.0f, 0.9f, 0.0f, 1.0f, 1.0f, 1.0f);
-
+        setBlockBounds(0.0f, 0.943f, 0.0f, 1.0f, 1.0f, 1.0f);
     }
     public boolean isOpaqueCube()
     {
@@ -16,6 +15,9 @@ public class BlockCatwalk extends Block {
     public boolean renderAsNormalBlock()
     {
         return false;
+    }
+    public int getRenderBlockPass() {
+        return 1;
     }
 
 }
