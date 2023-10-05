@@ -59,7 +59,6 @@ public class SoundManagerMixin {
                 SoundPoolEntry soundpoolentry = mc != null && mc.thePlayer != null && !mc.thePlayer.world.canBlockSeeTheSky(MathHelper.floor_double(mc.thePlayer.x), MathHelper.floor_double(mc.thePlayer.y), MathHelper.floor_double(mc.thePlayer.z)) ? this.cave.getRandomSound() : SoundContainer.soundPoolMoonMusic.getRandomSound();
                 if (soundpoolentry != null) {
                     this.ticksBeforeMusic = this.rand.nextInt(6000) + 6000;
-                    CosmicCraft.LOGGER.info(soundpoolentry.soundName);
                     sndSystem.backgroundMusic("BgMusic", soundpoolentry.soundUrl, soundpoolentry.soundName, false);
                     sndSystem.setVolume("BgMusic", SoundTypeHelper.getEffectiveVolume(SoundType.MUSIC, options));
                     sndSystem.play("BgMusic");
