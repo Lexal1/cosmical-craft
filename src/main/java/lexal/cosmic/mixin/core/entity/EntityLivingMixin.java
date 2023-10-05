@@ -2,7 +2,7 @@ package lexal.cosmic.mixin.core.entity;
 
 import com.mojang.nbt.CompoundTag;
 import lexal.cosmic.block.ModMaterials;
-import lexal.cosmic.world.IGravity;
+import lexal.cosmic.world.ISpace;
 import lexal.cosmic.world.worldType.WorldTypeMoon;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.Entity;
@@ -26,18 +26,22 @@ public class EntityLivingMixin extends Entity {
     @Redirect(method = "baseTick()V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityLiving;isUnderLiquid(Lnet/minecraft/core/block/material/Material;)Z"))
     public boolean moonSuffocation(EntityLiving living, Material material){
-        if (living.isUnderLiquid(ModMaterials.gas)){
+        if (living.isUnderLiquid(ModMaterials.gas)){ // Can Breath in Air
             return false;
         }
-        return (living.isUnderLiquid(material) || (living.world.getWorldType() instanceof WorldTypeMoon)); // Suffocate underwater or on moon
+        boolean shouldSuffocate = false;
+        if (living.world.getWorldType() instanceof ISpace){
+            shouldSuffocate = ((ISpace) living.world.getWorldType()).suffocate();
+        }
+        return shouldSuffocate || living.isUnderLiquid(material); // Suffocate underwater or on moon
     }
 
 
     @Inject(method = "moveEntityWithHeading(FF)V", at = @At("HEAD"))
     private void getGravity(float moveStrafing, float moveForward, CallbackInfo cbi){
         gravityScale = 1f;
-        if (world.getWorldType() instanceof IGravity){
-            gravityScale = ((IGravity)world.worldType).getGravityScalar();
+        if (world.getWorldType() instanceof ISpace){
+            gravityScale = ((ISpace)world.worldType).getGravityScalar();
         }
     }
 

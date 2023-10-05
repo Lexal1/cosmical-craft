@@ -1,7 +1,7 @@
 package lexal.cosmic.world.worldType;
 
 import lexal.cosmic.block.ModBlocks;
-import lexal.cosmic.world.IGravity;
+import lexal.cosmic.world.ISpace;
 import lexal.cosmic.world.biomes.ModBiomes;
 import lexal.cosmic.world.generate.ChunkGeneratorMoon;
 import net.minecraft.core.util.helper.MathHelper;
@@ -16,7 +16,7 @@ import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.weather.Weather;
 import net.minecraft.core.world.wind.WindManager;
 
-public abstract class WorldTypeMoon extends WorldType implements IGravity {
+public abstract class WorldTypeMoon extends WorldType implements ISpace {
     public WorldTypeMoon(String languageKey, Weather defaultWeather, WindManager windManager, boolean hasCeiling, float[] brightnessRamp, SeasonConfig defaultSeasonConfig) {
         super(
                 languageKey,
