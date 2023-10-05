@@ -30,4 +30,9 @@ public class WorldTypeMoonDefault extends WorldTypeMoon {
     public float getGravityScalar() {
         return 0.45f;
     }
+
+    @Override
+    public boolean suffocate() {
+        return true;
+    }
 }

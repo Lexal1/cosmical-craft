@@ -1,7 +1,7 @@
 package lexal.cosmic.mixin.core.entity;
 
 import com.mojang.nbt.CompoundTag;
-import lexal.cosmic.world.IGravity;
+import lexal.cosmic.world.ISpace;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.projectile.EntityCannonball;
 import net.minecraft.core.world.World;
@@ -19,8 +19,8 @@ public class EntityCannonBallMixin extends Entity {
 
     @Inject(method = "tick()V", at = @At("TAIL"))
     private void scaleGravity(CallbackInfo ci){
-        if (world.getWorldType() instanceof IGravity){
-            float gravityScale = ((IGravity)world.getWorldType()).getGravityScalar();
+        if (world.getWorldType() instanceof ISpace){
+            float gravityScale = ((ISpace)world.getWorldType()).getGravityScalar();
             this.yd +=  0.09f - (0.09f * gravityScale);
         }
 

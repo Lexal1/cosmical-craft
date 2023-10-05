@@ -1,7 +1,7 @@
 package lexal.cosmic.mixin.core.entity;
 
 import com.mojang.nbt.CompoundTag;
-import lexal.cosmic.world.IGravity;
+import lexal.cosmic.world.ISpace;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.projectile.EntityArrow;
 import net.minecraft.core.world.World;
@@ -21,8 +21,8 @@ public class EntityArrowMixin extends Entity {
 
     @Inject(method = "init()V", at = @At("TAIL"))
     private void changeGravity(CallbackInfo ci){
-        if (this.world.getWorldType() instanceof IGravity){
-            this.arrowGravity *= ((IGravity)this.world.getWorldType()).getGravityScalar();
+        if (this.world.getWorldType() instanceof ISpace){
+            this.arrowGravity *= ((ISpace)this.world.getWorldType()).getGravityScalar();
         }
     }
 

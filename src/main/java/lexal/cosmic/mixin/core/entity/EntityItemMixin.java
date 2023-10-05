@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import lexal.cosmic.world.IGravity;
+import lexal.cosmic.world.ISpace;
 
 @Mixin(value = EntityItem.class, remap = false)
 public class EntityItemMixin extends Entity {
@@ -21,8 +21,8 @@ public class EntityItemMixin extends Entity {
     private void itemGravity(EntityItem item, double yd){
         double offset = -(yd - this.yd);
         double gravity = 1d;
-        if (item.world.getWorldType() instanceof IGravity){
-            gravity = ((IGravity)item.world.getWorldType()).getGravityScalar();
+        if (item.world.getWorldType() instanceof ISpace){
+            gravity = ((ISpace)item.world.getWorldType()).getGravityScalar();
         }
         item.yd -= offset * gravity;
     }
