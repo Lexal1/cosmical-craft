@@ -1,5 +1,6 @@
 package lexal.cosmic.mixin.client;
 
+import lexal.cosmic.CosmicCraft;
 import lexal.cosmic.sound.SoundContainer;
 import lexal.cosmic.world.ModDimensions;
 import net.minecraft.client.Minecraft;
@@ -69,10 +70,10 @@ public class SoundManagerMixin {
 
     @Redirect(method = "walkFolder(Ljava/io/File;Ljava/io/File;Lnet/minecraft/client/sound/SoundPool;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundPool;addSound(Ljava/lang/String;Ljava/io/File;)Lnet/minecraft/client/sound/SoundPoolEntry;"))
     private static SoundPoolEntry dimensionMusic(SoundPool instance, String soundpoolentry, File e){
-        if (e.getPath().contains("moon")){
+        if (e.getPath().contains(new File("/moon/").getPath())){
             return SoundContainer.soundPoolMoonMusic.addSound(soundpoolentry, e);
         }
-        return  instance.addSound(soundpoolentry, e);
+        return instance.addSound(soundpoolentry, e);
     }
 
 }

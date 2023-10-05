@@ -1,6 +1,7 @@
 package lexal.cosmic.mixin.core.block;
 
 import lexal.cosmic.block.ModBlocks;
+import lexal.cosmic.world.ISpace;
 import lexal.cosmic.world.ModDimensions;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockTorch;
@@ -20,11 +21,14 @@ public class BlockTorchMixin extends Block{
         super(key, id, material);
     }
 
-    @Inject(method = "randomDisplayTick(Lnet/minecraft/core/world/World;IIILjava/util/Random;)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "updateTick(Lnet/minecraft/core/world/World;IIILjava/util/Random;)V", at = @At("TAIL"), cancellable = true)
     private void burnOut(World world, int x, int y, int z, Random rand, CallbackInfo ci){
-        if ((this.id == Block.torchCoal.id) && (world.dimension == ModDimensions.dimensionMoon && rand.nextInt(5) == 0)){
-            world.setBlockWithNotify(x,y,z, ModBlocks.torchUnlit.id);
-            ci.cancel();
+        if (world.worldType instanceof ISpace){
+            ISpace worldSpace = (ISpace) world;
+            if (worldSpace.suffocate() && (this.id == Block.torchCoal.id)){
+                world.setBlockWithNotify(x,y,z, ModBlocks.torchUnlit.id);
+                ci.cancel();
+            }
         }
     }
 }
