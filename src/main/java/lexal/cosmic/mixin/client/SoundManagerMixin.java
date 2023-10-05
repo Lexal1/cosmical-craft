@@ -1,5 +1,6 @@
 package lexal.cosmic.mixin.client;
 
+import lexal.cosmic.CosmicCraft;
 import lexal.cosmic.sound.SoundContainer;
 import lexal.cosmic.world.ModDimensions;
 import net.minecraft.client.Minecraft;
@@ -58,6 +59,7 @@ public class SoundManagerMixin {
                 SoundPoolEntry soundpoolentry = mc != null && mc.thePlayer != null && !mc.thePlayer.world.canBlockSeeTheSky(MathHelper.floor_double(mc.thePlayer.x), MathHelper.floor_double(mc.thePlayer.y), MathHelper.floor_double(mc.thePlayer.z)) ? this.cave.getRandomSound() : SoundContainer.soundPoolMoonMusic.getRandomSound();
                 if (soundpoolentry != null) {
                     this.ticksBeforeMusic = this.rand.nextInt(6000) + 6000;
+                    CosmicCraft.LOGGER.info(soundpoolentry.soundName);
                     sndSystem.backgroundMusic("BgMusic", soundpoolentry.soundUrl, soundpoolentry.soundName, false);
                     sndSystem.setVolume("BgMusic", SoundTypeHelper.getEffectiveVolume(SoundType.MUSIC, options));
                     sndSystem.play("BgMusic");
@@ -69,10 +71,10 @@ public class SoundManagerMixin {
 
     @Redirect(method = "walkFolder(Ljava/io/File;Ljava/io/File;Lnet/minecraft/client/sound/SoundPool;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundPool;addSound(Ljava/lang/String;Ljava/io/File;)Lnet/minecraft/client/sound/SoundPoolEntry;"))
     private static SoundPoolEntry dimensionMusic(SoundPool instance, String soundpoolentry, File e){
-        if (e.getPath().contains("moon")){
+        if (e.getPath().contains(new File("/moon/").getPath())){
             return SoundContainer.soundPoolMoonMusic.addSound(soundpoolentry, e);
         }
-        return  instance.addSound(soundpoolentry, e);
+        return instance.addSound(soundpoolentry, e);
     }
 
 }

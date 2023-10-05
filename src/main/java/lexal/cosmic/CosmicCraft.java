@@ -60,11 +60,11 @@ public class CosmicCraft implements ModInitializer {
 
         ModEntities.register();
 
-        SoundHelper.addMusic(MOD_ID, "moon0.wav");
-        SoundHelper.addMusic(MOD_ID, "moon1.wav");
-        SoundHelper.addMusic(MOD_ID, "moon2.wav");
-        SoundHelper.addMusic(MOD_ID, "moon3.wav");
-        SoundHelper.addMusic(MOD_ID, "moon4.wav");
+        SoundHelper.addMusic(MOD_ID, "moon/moon0.wav");
+        SoundHelper.addMusic(MOD_ID, "moon/moon1.wav");
+        SoundHelper.addMusic(MOD_ID, "moon/moon2.wav");
+        SoundHelper.addMusic(MOD_ID, "moon/moon3.wav");
+        SoundHelper.addMusic(MOD_ID, "moon/moon4.wav");
 
         if (spawnEggsModPresent){
             SpawnEggsModule.onInitialize();;
