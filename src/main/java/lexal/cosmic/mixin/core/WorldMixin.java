@@ -1,5 +1,6 @@
 package lexal.cosmic.mixin.core;
 
+import lexal.cosmic.world.ISpace;
 import lexal.cosmic.world.worldType.WorldTypeMoon;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
@@ -11,6 +12,7 @@ import net.minecraft.core.world.type.WorldType;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 
@@ -22,11 +24,13 @@ public abstract class WorldMixin implements WorldSource {
     @Shadow public abstract WorldType getWorldType();
 
     @Shadow @Final public WorldType worldType;
+    @Unique
+    private World thisAs = (World)(Object)this;
 
     @Inject(method = "getStarBrightness(F)F", at = @At(value = "HEAD"), cancellable = true)
-    public void renderStarsOnMood(float renderPartialTicks, CallbackInfoReturnable<Float> cir){
-        if (this.getWorldType() instanceof WorldTypeMoon){
-            cir.setReturnValue(0.75f);
+    public void renderStarsInSpace(float renderPartialTicks, CallbackInfoReturnable<Float> cir){
+        if (this.getWorldType() instanceof ISpace){
+            cir.setReturnValue(((ISpace)worldType).getStarBrightness(thisAs));
         }
     }
 

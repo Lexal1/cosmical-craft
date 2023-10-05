@@ -1,5 +1,6 @@
 package lexal.cosmic.mixin.client;
 
+import lexal.cosmic.world.ISpace;
 import lexal.cosmic.world.worldType.WorldTypeMoon;
 import net.minecraft.client.render.RenderEngine;
 import net.minecraft.client.render.RenderGlobal;
@@ -24,14 +25,24 @@ public class RenderGlobalMixin implements LevelListener {
     private World worldObj;
     @Shadow
     private RenderEngine renderEngine;
-
+    @Inject(method = "drawSky(F)V",
+            at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glBindTexture(II)V",
+                    shift = At.Shift.AFTER,
+                    ordinal = 0))
+    private void renderSunImage(float renderPartialTicks,CallbackInfo cbi){// Replace moon texture
+        if (this.worldObj.getWorldType() instanceof ISpace){
+            ISpace worldSpace = (ISpace)worldObj.getWorldType();
+            GL11.glBindTexture(3553, this.renderEngine.getTexture(worldSpace.getCelestialSunTexture()));
+        }
+    }
     @Inject(method = "drawSky(F)V",
             at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glBindTexture(II)V",
                     shift = At.Shift.AFTER,
                     ordinal = 1))
-    private void renderEarthImage(float renderPartialTicks,CallbackInfo cbi){
-        if (this.worldObj.getWorldType() instanceof WorldTypeMoon){ // Replace moon texture with earth when on the moon
-            GL11.glBindTexture(3553, this.renderEngine.getTexture("/assets/cosmic/terrain/earth.png"));
+    private void renderMoonImage(float renderPartialTicks,CallbackInfo cbi){// Replace moon texture
+        if (this.worldObj.getWorldType() instanceof ISpace){
+            ISpace worldSpace = (ISpace)worldObj.getWorldType();
+            GL11.glBindTexture(3553, this.renderEngine.getTexture(worldSpace.getCelestialMoonTexture()));
         }
     }
 

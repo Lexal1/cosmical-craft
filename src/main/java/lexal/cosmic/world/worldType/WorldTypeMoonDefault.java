@@ -1,5 +1,6 @@
 package lexal.cosmic.world.worldType;
 
+import net.minecraft.core.world.World;
 import net.minecraft.core.world.config.season.SeasonConfig;
 import net.minecraft.core.world.season.Seasons;
 import net.minecraft.core.world.weather.Weather;
@@ -34,5 +35,20 @@ public class WorldTypeMoonDefault extends WorldTypeMoon {
     @Override
     public boolean suffocate() {
         return true;
+    }
+
+    @Override
+    public String getCelestialMoonTexture() {
+        return "/assets/cosmic/terrain/earth.png";
+    }
+
+    @Override
+    public String getCelestialSunTexture() {
+        return "/terrain/sun.png";
+    }
+
+    @Override
+    public float getStarBrightness(World world) {
+        return 0.75f;
     }
 }

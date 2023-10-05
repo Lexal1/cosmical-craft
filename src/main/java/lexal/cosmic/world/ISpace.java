@@ -1,6 +1,11 @@
 package lexal.cosmic.world;
 
+import net.minecraft.core.world.World;
+
 public interface ISpace {
-    public float getGravityScalar();
-    public boolean suffocate();
+    float getGravityScalar();
+    boolean suffocate();
+    String getCelestialMoonTexture();
+    String getCelestialSunTexture();
+    float getStarBrightness(World world);
 }
