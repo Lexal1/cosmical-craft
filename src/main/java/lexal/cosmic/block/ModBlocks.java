@@ -11,6 +11,10 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.block.ItemBlockLayer;
+import net.minecraft.core.util.helper.Axis;
+import net.minecraft.core.util.helper.Side;
+import net.minecraft.core.util.helper.Sides;
+import net.minecraft.core.world.World;
 import turniplabs.halplibe.helper.BlockBuilder;
 
 public class ModBlocks {
@@ -180,5 +184,14 @@ public class ModBlocks {
     }
 
     public static void register() {}
+    static Side[] sides = new Side[]{Side.TOP, Side.BOTTOM, Side.NORTH, Side.EAST, Side.SOUTH, Side.WEST};
+    public static boolean doesNeighborBlock(World world, int x, int y, int z, int blockID){
+        for (Side side: sides) {
+            if (world.getBlockId(x + side.getOffsetX(), y + side.getOffsetY(), z + side.getOffsetZ()) == blockID){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
