@@ -6,7 +6,7 @@ import net.minecraft.core.world.biome.Biome;
 import net.minecraft.core.world.biome.Biomes;
 
 public class ModBiomes {
-    public static final Biome biomeMoon = Biomes.register("btb:moon.moon", new BiomeMoon());
+    public static final Biome biomeMoon = Biomes.register("btb:moon.moon", new BiomeMoon("moon"));
     static
     {
         biomeMoon.topBlock = (short) ModBlocks.moonsnow.id;

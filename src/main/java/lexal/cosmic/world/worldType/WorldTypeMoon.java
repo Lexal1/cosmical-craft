@@ -90,9 +90,9 @@ public abstract class WorldTypeMoon extends WorldType implements ISpace {
             f2 = 1.0f;
         }
         float weatherOffset = 0.0f;
-        if (world.currentWeather != null) {
-            weatherOffset = (float)world.currentWeather.subtractLightLevel * world.weatherIntensity * world.weatherPower;
-        }
+        Weather currentWeather = world.getCurrentWeather();
+        if (currentWeather != null)
+            weatherOffset = currentWeather.subtractLightLevel * world.weatherManager.getWeatherIntensity() * world.weatherManager.getWeatherPower();
         if ((subtracted = (int)(f2 * (11.0f - weatherOffset) + weatherOffset)) > 8) {
             subtracted = 12;
         }
@@ -124,7 +124,7 @@ public abstract class WorldTypeMoon extends WorldType implements ISpace {
         return brightnessRamp;
     }
     @Override
-    public Vec3d getFogColor(float f, float g) {
+    public Vec3d getFogColor(World world, double x, double y, double z, float f, float partialTick) {
         int i = 0;
         float f2 = MathHelper.cos(f * 3.141593F * 2.0F) * 2.0F + 0.5F;
         if(f2 < 0.0F)

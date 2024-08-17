@@ -17,7 +17,7 @@ public class ItemGasLayer extends ItemBlock{
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
+    public boolean onUseItemOnBlock(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
         int id = world.getBlockId(blockX, blockY, blockZ);
         int meta = world.getBlockMetadata(blockX, blockY, blockZ);
         if (id != this.blockID && Block.blocksList[id] != null && Block.blocksList[id].hasTag(BlockTags.PLACE_OVERWRITES)) {
@@ -43,7 +43,7 @@ public class ItemGasLayer extends ItemBlock{
                 world.setBlockAndMetadataWithNotify(blockX, blockY + 1, blockZ, this.blockID, 0);
             }
             world.markBlockNeedsUpdate(blockX, blockY, blockZ);
-            world.playBlockSoundEffect((float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockLayer, EnumBlockSoundEffectType.PLACE);
+            world.playBlockSoundEffect(null, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockLayer, EnumBlockSoundEffectType.PLACE);
             itemstack.consumeItem(entityplayer);
             return true;
         }
@@ -64,7 +64,7 @@ public class ItemGasLayer extends ItemBlock{
                 world.setBlockAndMetadataWithNotify(blockX, blockY + 1, blockZ, this.blockID, 0);
             }
             world.markBlockNeedsUpdate(blockX, blockY, blockZ);
-            world.playBlockSoundEffect((float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockLayer, EnumBlockSoundEffectType.PLACE);
+            world.playBlockSoundEffect(null, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, blockLayer, EnumBlockSoundEffectType.PLACE);
             itemstack.consumeItem(entityplayer);
             return true;
         }
@@ -73,7 +73,7 @@ public class ItemGasLayer extends ItemBlock{
             if (world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, this.blockID, this.getPlacedBlockMetadata(itemstack.getMetadata()))) {
                 Block.blocksList[this.blockID].onBlockPlaced(world, blockX, blockY, blockZ, null, entityplayer, yPlaced);
                 world.markBlockNeedsUpdate(blockX, blockY, blockZ);
-                world.playBlockSoundEffect((float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, block, EnumBlockSoundEffectType.PLACE);
+                world.playBlockSoundEffect(null, (float)blockX + 0.5f, (float)blockY + 0.5f, (float)blockZ + 0.5f, block, EnumBlockSoundEffectType.PLACE);
                 itemstack.consumeItem(entityplayer);
             }
             return true;

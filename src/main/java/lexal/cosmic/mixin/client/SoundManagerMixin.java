@@ -8,8 +8,8 @@ import net.minecraft.client.option.GameSettings;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.sound.SoundPool;
 import net.minecraft.client.sound.SoundPoolEntry;
-import net.minecraft.client.sound.SoundTypeHelper;
-import net.minecraft.core.sound.SoundType;
+import net.minecraft.client.sound.SoundCategoryHelper;
+import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.util.helper.MathHelper;
 import org.lwjgl.input.Keyboard;
 import org.spongepowered.asm.mixin.Mixin;
@@ -48,7 +48,7 @@ public class SoundManagerMixin {
         }
         Minecraft mc = Minecraft.getMinecraft(this);
         if (mc.theWorld.dimension == ModDimensions.dimensionMoon){
-            if (!loaded || sndSystem == null || SoundTypeHelper.getEffectiveVolume(SoundType.MUSIC, options) == 0.0f) {
+            if (!loaded || sndSystem == null || SoundCategoryHelper.getEffectiveVolume(SoundCategory.MUSIC, options) == 0.0f) {
                 return;
             }
             if (!sndSystem.playing("BgMusic") && !sndSystem.playing("streaming")) {
@@ -60,7 +60,7 @@ public class SoundManagerMixin {
                 if (soundpoolentry != null) {
                     this.ticksBeforeMusic = this.rand.nextInt(6000) + 6000;
                     sndSystem.backgroundMusic("BgMusic", soundpoolentry.soundUrl, soundpoolentry.soundName, false);
-                    sndSystem.setVolume("BgMusic", SoundTypeHelper.getEffectiveVolume(SoundType.MUSIC, options));
+                    sndSystem.setVolume("BgMusic", SoundCategoryHelper.getEffectiveVolume(SoundCategory.MUSIC, options));
                     sndSystem.play("BgMusic");
                 }
             }

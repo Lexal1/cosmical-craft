@@ -40,7 +40,7 @@ public class BlockGas extends BlockFluid {
         world.scheduleBlockUpdate(i, j, k, this.id, this.tickRate());
     }
     @Override
-    public void setBlockBoundsBasedOnState(World world, int x, int y, int z) {
+    public void setBlockBoundsBasedOnState(WorldSource world, int x, int y, int z) {
         int l = world.getBlockMetadata(x, y, z);
         float f = (float)((1 + l)) / 16.0f;
         f = Math.min(f, 1);

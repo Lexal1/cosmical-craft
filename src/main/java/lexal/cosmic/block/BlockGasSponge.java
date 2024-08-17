@@ -61,7 +61,7 @@ public class BlockGasSponge extends Block {
     }
 
     @Override
-    public void onBlockRemoval(World world, int x, int y, int z) {
+    public void onBlockRemoved(World world, int x, int y, int z, int data) {
         int byte0 = 2;
         for (int l = x - byte0; l <= x + byte0; ++l) {
             for (int i1 = y - byte0; i1 <= y + byte0; ++i1) {

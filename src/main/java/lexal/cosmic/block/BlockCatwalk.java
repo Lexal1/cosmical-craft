@@ -8,16 +8,18 @@ public class BlockCatwalk extends Block {
         super(key, id, material);
         setBlockBounds(0.0f, 0.943f, 0.0f, 1.0f, 1.0f, 1.0f);
     }
-    public boolean isOpaqueCube()
+    @Override
+    public boolean isSolidRender()
     {
         return false;
     }
+    @Override
     public boolean renderAsNormalBlock()
     {
         return false;
     }
+    @Override
     public int getRenderBlockPass() {
         return 1;
     }
-
 }

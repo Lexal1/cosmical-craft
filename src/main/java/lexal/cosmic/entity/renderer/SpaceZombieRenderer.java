@@ -4,8 +4,7 @@ import net.minecraft.client.render.entity.MobRenderer;
 import net.minecraft.client.render.model.ModelZombie;
 import net.minecraft.core.entity.monster.EntityArmoredZombie;
 
-public class SpaceZombieRenderer
-        extends MobRenderer<EntityArmoredZombie> {
+public class SpaceZombieRenderer extends MobRenderer<EntityArmoredZombie> {
     private final ModelZombie modelArmorChestplate;
     private final ModelZombie modelArmor;
 
@@ -17,7 +16,7 @@ public class SpaceZombieRenderer
     }
 
     protected boolean setArmorModel(EntityArmoredZombie zombie, int renderPass, float renderPartialTicks) {
-        this.loadTexture("/armor/space_" + (renderPass != 2 ? 1 : 2) + ".png");
+        this.loadTexture("/assets/cosmic/textures/armor/space_" + (renderPass != 2 ? 1 : 2) + ".png");
         ModelZombie model = renderPass != 2 ? this.modelArmorChestplate : this.modelArmor;
         model.bipedHead.showModel = renderPass == 0;
         model.bipedHeadOverlay.showModel = renderPass == 0;
@@ -27,8 +26,8 @@ public class SpaceZombieRenderer
         model.bipedRightLeg.showModel = renderPass == 2 || renderPass == 3;
         model.bipedLeftLeg.showModel = renderPass == 2 || renderPass == 3;
         for (int i = 0; i < 4; ++i) {
-            if (zombie.health > zombie.armorBreakPoints[i]) continue;
-            this.hideArmorPiece(zombie.armorBreakOrder[i]);
+            if (zombie.getHealth() > zombie.getArmorBreakPoints()[i]) continue;
+            this.hideArmorPiece(zombie.getArmorBreakOrder()[i]);
         }
         this.setRenderPassModel(model);
         return true;

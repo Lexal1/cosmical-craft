@@ -3,9 +3,10 @@ package lexal.cosmic.block;
 import lexal.cosmic.CosmicCraft;
 import lexal.cosmic.UtilIdRegistrar;
 import lexal.cosmic.item.ItemGasLayer;
-import net.minecraft.client.render.block.model.BlockModelRenderBlocks;
-import net.minecraft.client.sound.block.BlockSound;
-import net.minecraft.client.sound.block.BlockSounds;
+import net.minecraft.client.render.block.model.BlockModelTorch;
+import net.minecraft.client.render.block.model.BlockModelCake;
+import net.minecraft.core.sound.BlockSound;
+import net.minecraft.core.sound.BlockSounds;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -22,66 +23,70 @@ public class ModBlocks {
     public static final Block ironplating = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.0f)
             .setResistance(2.5f)
-            .setTextures("iron_plating.png")
+            .setTextures("cosmic:block/iron_plating")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("ironplating", UtilIdRegistrar.nextIdBlock(), Material.metal));
     public static final Block goldplating = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.0f)
             .setResistance(1.5f)
-            .setTextures("gold_plating.png")
+            .setTextures("cosmic:block/gold_plating")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("goldplating", UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block moonturf = new BlockBuilder(CosmicCraft.MOD_ID)
             .setBlockSound(BlockSounds.CLOTH)
             .setHardness(1.5f)
             .setResistance(1.5f)
-            .setTextures("moon_turf.png")
+            .setTextures("cosmic:block/moon_turf")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new Block("moonturf", UtilIdRegistrar.nextIdBlock(),Material.stone));
     public static final Block moonstone = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.5f)
             .setResistance(2.5f)
-            .setTextures("moon_stone.png")
+            .setTextures("cosmic:block/moon_stone")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new BlockMoonstone("moonstone", UtilIdRegistrar.nextIdBlock(),Material.stone));
     public static final Block catwalk = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(1.5f)
             .setResistance(1.5f)
-            .setTextures(7,19)
+            // TODO: Check this
+            .setTextures("minecraft:block/fence_chain_center")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockCatwalk("catwalk", UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block mooncobblestone = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.0f)
             .setResistance(3.0f)
-            .setTextures("moon_cobblestone.png")
+            .setTextures("cosmic:block/moon_cobblestone")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockMoonstone("mooncobblestone", UtilIdRegistrar.nextIdBlock(),Material.stone));
     public static final Block cheesewheel = new BlockBuilder(CosmicCraft.MOD_ID)
-            .setTextures("cheese_block.png")
+            .setTextures("cosmic:block/cheese_block")
+            .setBlockModel(block -> new BlockModelCake(block)
+                .withTextures("minecraft:block/cake_top", "minecraft:block/cake_bottom", "cosmic:block/cheese_block")
+            )
             .build(new BlockCheeseWheel("cheesewheel", UtilIdRegistrar.nextIdBlock()));
 
     public static final Block cheeseore = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.5f)
             .setResistance(2.5f)
-            .setTextures("cheese_ore.png")
+            .setTextures("cosmic:block/cheese_ore")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new BlockCheeseOre("cheeseore", UtilIdRegistrar.nextIdBlock()));
     public static final Block mooniron = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.5f)
             .setResistance(2.5f)
-            .setTextures("moon_stone_iron.png")
+            .setTextures("cosmic:block/moon_stone_iron")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new BlockOreIron("mooniron", UtilIdRegistrar.nextIdBlock(),Material.stone));
     public static final Block moongold = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.5f)
             .setResistance(2.5f)
-            .setTextures("moon_stone_gold.png")
+            .setTextures("cosmic:block/moon_stone_gold")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
             .build(new BlockOreGold("moongold", UtilIdRegistrar.nextIdBlock(), Material.stone));
     public static final Block moonsnow = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0.1f)
             .setResistance(0.0f)
-            .setTextures("moon_turf.png")
+            .setTextures("cosmic:block/moon_turf")
             .setBlockSound(BlockSounds.CLOTH)
             .setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.PLACE_OVERWRITES, BlockTags.BROKEN_BY_FLUIDS, ModBlockTags.GAS_DESTROYS)
             .build(new BlockMoonSnow("moonsnow", UtilIdRegistrar.nextIdBlock(), Material.topSnow));
@@ -89,95 +94,95 @@ public class ModBlocks {
     public static final Block portalmoon = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(-1.0f)
             .setResistance(-1.0f)
-            .setTextures("moon_cobblestone.png")
+            .setTextures("cosmic:block/moon_cobblestone")
             .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-            .build(new BlockPortal("portal.moon",UtilIdRegistrar.nextIdBlock(),3, ironplating.id,moonstone.id));
+            .build(new BlockPortal("portal.moon",UtilIdRegistrar.nextIdBlock(), 4, ironplating.id,moonstone.id));
 
     public static final Block torchUnlit = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0)
             .setTags(BlockTags.BROKEN_BY_FLUIDS)
-            .setTextures("torch_unlit.png")
-            .setBlockModel(new BlockModelRenderBlocks(2)) // Torch model
+            .setTextures("cosmic:block/torch_unlit")
+            .setBlockModel(block -> new BlockModelTorch(block))
             .build(new BlockTorchUnlit("torch.unlit", UtilIdRegistrar.nextIdBlock())).withDisabledNeighborNotifyOnMetadataChange();
     public static final Block glowstoneTorch = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0)
-            .setTextures("glowstone_torch.png")
+            .setTextures("cosmic:block/glowstone_torch")
             .setLuminance(8)
             .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PREVENT_MOB_SPAWNS)
-            .setBlockModel(new BlockModelRenderBlocks(2))
+            .setBlockModel(block -> new BlockModelTorch(block))
             .setBlockSound(BlockSounds.WOOD)
             .build(new BlockTorch("torch.glowstone",UtilIdRegistrar.nextIdBlock()));
     public static final Block whitetile = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.0f)
             .setResistance(2.0f)
-            .setTextures("white_tile.png")
+            .setTextures("cosmic:block/white_tile")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("whitetile",UtilIdRegistrar.nextIdBlock(),Material.cloth));
     public static final Block blacktile = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(2.5f)
             .setResistance(2.5f)
-            .setTextures("black_tile.png")
+            .setTextures("cosmic:block/black_tile")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("blacktile",UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block starsteelblock = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.0f)
             .setResistance(5.0f)
-            .setTopTexture("starsteelblock_top.png")
-            .setSideTextures("starsteelblock_side.png")
-            .setBottomTexture("starsteelblock_bottom.png")
+            .setTopTexture("cosmic:block/starsteelblock_top")
+            .setSideTextures("cosmic:block/starsteelblock_side")
+            .setBottomTexture("cosmic:block/starsteelblock_bottom")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("starsteelblock",UtilIdRegistrar.nextIdBlock(),Material.metal));
     public static final Block gasAirFlowing = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0)
-            .setTextures(6/*-2*/,12/*-1*/)
+            .setTextures("minecraft:block/glass_tinted")
             .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLACE_OVERWRITES, ModBlockTags.IS_GAS)
             .build(new BlockGasFlowing("gas.air.flowing", UtilIdRegistrar.nextIdBlock()));
     public static final Block gasAirStill = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0)
-            .setTextures(1/*+3*/,3/*+8*/)
+            .setTextures("minecraft:block/glass")
             .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLACE_OVERWRITES, ModBlockTags.IS_GAS)
             .build(new BlockGasStill("gas.air.still", UtilIdRegistrar.nextIdBlock()));
     public static final Block machinePressurizerIdle = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.5f)
-            .setNorthTexture("pressurizer_idle.png")
-            .setSouthTexture("iron_plating.png")
-            .setEastTexture("iron_plating.png")
-            .setWestTexture("iron_plating.png")
-            .setTopTexture("iron_plating.png")
-            .setBottomTexture("iron_plating.png")
+            .setNorthTexture("cosmic:block/pressurizer_idle")
+            .setSouthTexture("cosmic:block/iron_plating")
+            .setEastTexture("cosmic:block/iron_plating")
+            .setWestTexture("cosmic:block/iron_plating")
+            .setTopTexture("cosmic:block/iron_plating")
+            .setBottomTexture("cosmic:block/iron_plating")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockMachinePressurizer("machine.pressurizer.idle", UtilIdRegistrar.nextIdBlock(), false) {});
     public static final Block machinePressurizerActive = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.5f)
-            .setNorthTexture("pressurizer_active.png")
-            .setSouthTexture("iron_plating.png")
-            .setEastTexture("iron_plating.png")
-            .setWestTexture("iron_plating.png")
-            .setTopTexture("iron_plating.png")
-            .setBottomTexture("iron_plating.png")
+            .setNorthTexture("cosmic:block/pressurizer_active")
+            .setSouthTexture("cosmic:block/iron_plating")
+            .setEastTexture("cosmic:block/iron_plating")
+            .setWestTexture("cosmic:block/iron_plating")
+            .setTopTexture("cosmic:block/iron_plating")
+            .setBottomTexture("cosmic:block/iron_plating")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockMachinePressurizer("machine.pressurizer.active", UtilIdRegistrar.nextIdBlock(), true) {});
     public static final Block gasSponge = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(0)
-            .setTextures(0,3)
+            .setTextures("minecraft:block/sponge")
             .setTags(BlockTags.MINEABLE_BY_SHEARS)
             .build(new BlockGasSponge("sponge.gas", UtilIdRegistrar.nextIdBlock()));
     public static final Block meteorblock = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.0f)
             .setResistance(3.0f)
-            .setTextures("meteorrock.png")
+            .setTextures("cosmic:block/meteorrock")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new Block("meteorrock", UtilIdRegistrar.nextIdBlock(),Material.stone));
     public static final Block meteorore = new BlockBuilder(CosmicCraft.MOD_ID)
             .setHardness(3.0f)
             .setResistance(3.0f)
-            .setTextures("meteor_ore.png")
+            .setTextures("cosmic:block/meteor_ore")
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .build(new BlockMeteorOre("meteorore", UtilIdRegistrar.nextIdBlock(),Material.stone));
 
 
     static {
-        ((BlockLayerBase)moonsnow).setFullBlockID(moonturf.id);
+        ((BlockLayerBase)moonsnow).setFullBlockID(() -> moonturf.id);
         Item.itemsList[moonsnow.id] = new ItemBlockLayer(moonsnow);
         Item.itemsList[gasAirStill.id] = new ItemGasLayer(gasAirStill);
         Item.itemsList[gasAirFlowing.id] = new ItemGasLayer(gasAirFlowing);

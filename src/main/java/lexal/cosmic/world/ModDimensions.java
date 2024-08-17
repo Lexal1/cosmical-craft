@@ -9,11 +9,8 @@ import net.minecraft.core.world.PortalHandler;
 import net.minecraft.core.world.World;
 
 public class ModDimensions {
-    public static final Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, ModBlocks.portalmoon.id).setDefaultWorldType(ModWorldType.worldTypeMoon);
-    static
-    {
-        Dimension.registerDimension(3, dimensionMoon);
-    }
+    public static Dimension dimensionMoon;
+
     public static void register() {}
 
     public static void dimensionShift(int targetDimension){

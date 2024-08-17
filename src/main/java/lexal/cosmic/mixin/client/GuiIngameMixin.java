@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = GuiIngame.class, remap = false)
 public class GuiIngameMixin extends Gui {
-    @Redirect(method = "renderGameOverlay(FZII)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/player/EntityPlayerSP;isUnderLiquid(Lnet/minecraft/core/block/material/Material;)Z"))
+    /*@Redirect(method = "renderGameOverlay(FZII)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/entity/player/EntityPlayerSP;isUnderLiquid(Lnet/minecraft/core/block/material/Material;)Z"))
     private boolean renderOnMoon(EntityPlayerSP player, Material material){
         boolean shouldSuffocate = false;
         if (player.world.getWorldType() instanceof ISpace){
@@ -21,5 +21,5 @@ public class GuiIngameMixin extends Gui {
         }
         shouldSuffocate = shouldSuffocate || player.isUnderLiquid(material);
         return (shouldSuffocate) && !player.isUnderLiquid(ModMaterials.gas); // If underwater or on moon without helmet render oxygen overlay
-    }
+    }*/
 }
