@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "",
-    "sources": ""
+    "sources": "https://github.com/Lexal1/cosmical-craft"
   },
 
   "license": "CC0-1.0",
@@ -39,6 +39,5 @@
     "halplibe": ">=2.2.0"
   },
   "suggests": {
-    "spawneggs": ">=1.1.0"
   }
 }

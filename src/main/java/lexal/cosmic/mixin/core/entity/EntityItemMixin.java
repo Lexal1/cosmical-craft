@@ -29,5 +29,5 @@ public class EntityItemMixin extends Entity {
 
     @Override public void readAdditionalSaveData(CompoundTag tag) {};
     @Override public void addAdditionalSaveData(CompoundTag tag) {};
-    @Override protected void init() {};
+    @Override public void init() {};
 }
