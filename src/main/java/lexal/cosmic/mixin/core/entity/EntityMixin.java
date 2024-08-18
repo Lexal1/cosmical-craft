@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = Entity.class, remap = false)
 public class EntityMixin {
-    //@Redirect(method = "trySuffocate()V", at = @At(value = "INVOKE", target = "isUnderLiquid"))
     @Inject(method = "isUnderLiquid", at = @At(value = "RETURN"), cancellable = true)
     public void moonSuffocation(Material material, CallbackInfoReturnable<Boolean> cir) {
         if (material == ModMaterials.gas) return;
@@ -33,6 +32,4 @@ public class EntityMixin {
         }
         cir.setReturnValue(shouldSuffocate || cir.getReturnValue()); // Suffocate underwater or on moon
     }
-
-    // Gravity is handled by Moon^3
 }

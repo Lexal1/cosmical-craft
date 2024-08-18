@@ -101,6 +101,8 @@ item.cosmic.dust.moon.desc=Dust from the moon
 dimension.the-moon.name=Moon
 worldType.the-moon.default.name=Moon
 worldType.the-moon.default.desc=Start on the Moon,\nan inhospitable desert\norbiting the Overworld.
+worldType.moon.default.name=Moon
+worldType.moon.default.desc=Start on the Moon,\nan inhospitable desert\norbiting the Overworld.
 
 #optionals
 item.cosmic.spawn.egg.spacezombie.name=Space Zombie Spawn Egg

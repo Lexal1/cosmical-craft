@@ -9,6 +9,7 @@
         "core.block.BlockTorchMixin",
         "core.entity.EntityItemMixin",
         "core.entity.EntityMixin",
+        "core.entity.EntityLivingMixin",
         "core.entity.EntityPlayerMixin",
         "core.entity.EntitySkeletonMixin",
         "core.entity.EntityArmoredZombieMixin",
