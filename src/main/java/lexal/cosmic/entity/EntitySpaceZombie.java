@@ -4,6 +4,7 @@ import net.minecraft.core.entity.monster.EntityArmoredZombie;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
+import net.minecraft.core.util.collection.NamespaceID;
 
 import java.util.Random;
 
@@ -14,8 +15,7 @@ public class EntitySpaceZombie extends EntityArmoredZombie {
         super(world);
         Random rand = new Random();
         this.isHoldingSword = rand.nextInt(3) == 0;
-        this.skinName = "zombie";
-        this.health = 50;
+        this.textureIdentifier = new NamespaceID("minecraft", "zombie");
         this.attackStrength = this.isHoldingSword ? 5 : 3;
     }
 
@@ -27,11 +27,17 @@ public class EntitySpaceZombie extends EntityArmoredZombie {
     public String getEntityTexture() {
         return getDefaultEntityTexture();
     }
+    @Override
     public String getDefaultEntityTexture() {
-        return "/mob/" + this.skinName + "/2.png";
+        return "/assets/minecraft/textures/entity/zombie/2.png";
     }
+    @Override
     public ItemStack getHeldItem() {
         return this.isHoldingSword ? defaultHeldItem : null;
+    }
+    @Override
+    public int getMaxHealth() {
+        return 50;
     }
 
     static {

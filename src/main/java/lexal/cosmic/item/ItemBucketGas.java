@@ -7,7 +7,7 @@ import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.sound.SoundType;
+import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.Vec3d;
@@ -23,8 +23,9 @@ public class ItemBucketGas extends Item {
         this.idToPlace = idToPlace;
         this.metaLevel = meta;
     }
+
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+    public ItemStack onUseItem(ItemStack stack, World world, EntityPlayer player) {
         float f9;
         float f6;
         float f8;
@@ -66,13 +67,13 @@ public class ItemBucketGas extends Item {
         }
         if (world.isAirBlock(x, y, z) || !world.getBlockMaterial(x, y, z).isSolid()) {
             if (world.dimension == Dimension.nether && this.idToPlace == Block.fluidWaterFlowing.id) {
-                world.playSoundEffect(SoundType.WORLD_SOUNDS, (double)z + 0.5, (double)y + 0.5, (double)x + 0.5, "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+                world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double)z + 0.5, (double)y + 0.5, (double)x + 0.5, "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
                 for (int l = 0; l < 8; ++l) {
-                    world.spawnParticle("largesmoke", (double)x + Math.random(), (double)y + Math.random(), (double)z + Math.random(), 0.0, 0.0, 0.0);
+                    world.spawnParticle("largesmoke", (double)x + Math.random(), (double)y + Math.random(), (double)z + Math.random(), 0.0, 0.0, 0.0, 0, 0);
                 }
             } else {
                 if (this.idToPlace == Block.fluidWaterFlowing.id) {
-                    world.playSoundEffect(SoundType.WORLD_SOUNDS, (float)x + 0.5f, (float)y + 0.5f, (float)z + 0.5f, "liquid.splash", 0.5f, 1.0f);
+                    world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (float)x + 0.5f, (float)y + 0.5f, (float)z + 0.5f, "liquid.splash", 0.5f, 1.0f);
                 }
                 player.swingItem();
                 Block block1 = world.getBlock(x, y, z);
@@ -81,7 +82,7 @@ public class ItemBucketGas extends Item {
                 }
                 world.setBlockAndMetadataWithNotify(x, y, z, this.idToPlace, metaLevel);
             }
-            if (player.getGamemode().consumeBlocks) {
+            if (player.getGamemode().consumeBlocks()) {
                 return new ItemStack(Item.bucket);
             }
         }

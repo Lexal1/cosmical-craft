@@ -13,61 +13,33 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = EntityLiving.class, remap = false)
-public class EntityLivingMixin extends Entity {
-    @Unique
-    private double gravityScale;
-    public EntityLivingMixin(World world) {
-        super(world);
-    }
+public class EntityLivingMixin {
+    float gravity = 1.F - 0.45f;
 
-    @Redirect(method = "baseTick()V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityLiving;isUnderLiquid(Lnet/minecraft/core/block/material/Material;)Z"))
-    public boolean moonSuffocation(EntityLiving living, Material material){
-        if (living.isUnderLiquid(ModMaterials.gas)){ // Can Breath in Air
-            return false;
-        }
-        boolean shouldSuffocate = false;
-        if (living.world.getWorldType() instanceof ISpace){
-            shouldSuffocate = ((ISpace) living.world.getWorldType()).suffocate();
-        }
-        return shouldSuffocate || living.isUnderLiquid(material); // Suffocate underwater or on moon
-    }
-
-
-    @Inject(method = "moveEntityWithHeading(FF)V", at = @At("HEAD"))
-    private void getGravity(float moveStrafing, float moveForward, CallbackInfo cbi){
-        gravityScale = 1f;
-        if (world.getWorldType() instanceof ISpace){
-            gravityScale = ((ISpace)world.worldType).getGravityScalar();
-        }
-    }
-
+    // This is incompatible with moon-mod and possibly Moon^3
     @Redirect(method = "moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/core/entity/EntityLiving;yd:D", opcode = Opcodes.PUTFIELD))
     private void entityGravity(EntityLiving entity, double yd){ //Probably terrible way of modifying gravity by a scalar
-        double offset = -(yd - this.yd);
-        if ((0.021 > offset && offset > 0.019) || (0.081 > offset && offset > 0.079)){ // If falling in water or in air
-            entity.yd -= offset * gravityScale;
-        } else if ((-0.251 < yd && yd < -0.249)) { // Terminal velocity
-            entity.yd = yd * gravityScale;
-        } else { // Else regular behavior
+        if (entity.world.getWorldType() instanceof WorldTypeMoon) {
+            double offset = -(yd - ((EntityLiving)(Object)this).yd);
+            if ((0.021 > offset && offset > 0.019) || (0.081 > offset && offset > 0.079)){ // If falling in water or in air
+                entity.yd -= offset * gravity;
+            } else if ((-0.251 < yd && yd < -0.249)) { // Terminal velocity
+                entity.yd = yd * gravity;
+            } else { // Else regular behavior
+                entity.yd = yd;
+            }
+        } else {
             entity.yd = yd;
         }
     }
-
     @ModifyVariable(method = "causeFallDamage(F)V", at = @At(value = "STORE"), ordinal = 0)
     private int changeFallDamage(int i){
-        return (int)((i * gravityScale) - (3/gravityScale) + 3);
-    }
-    @Shadow
-    protected void init() {
-    }
-    @Shadow
-    public void readAdditionalSaveData(CompoundTag compoundTag) {
-    }
-    @Shadow
-    public void addAdditionalSaveData(CompoundTag compoundTag) {
+        if (((EntityLiving)(Object)this).world.getWorldType() instanceof WorldTypeMoon){
+            return (int)((i * gravity) - (3 / gravity) + 3);
+        }
+        return i;
     }
 }

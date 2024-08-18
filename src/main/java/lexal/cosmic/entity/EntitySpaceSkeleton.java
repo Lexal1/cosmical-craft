@@ -7,13 +7,14 @@ import net.minecraft.core.entity.projectile.EntityCannonball;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.MathHelper;
+import net.minecraft.core.util.collection.NamespaceID;
 import net.minecraft.core.world.World;
 
 public class EntitySpaceSkeleton extends EntitySkeleton {
     private static final ItemStack defaultHeldItem;
     public EntitySpaceSkeleton(World world) {
         super(world);
-        this.skinName = "skeleton";
+        this.textureIdentifier = new NamespaceID("minecraft", "skeleton");
         this.scoreValue = 1000;
     }
     @Override
@@ -31,6 +32,26 @@ public class EntitySpaceSkeleton extends EntitySkeleton {
             this.spawnAtLocation(Item.bone.id, 1);
         }
     }
+
+    public void setCannonballHeading(EntityCannonball ball, double mx, double my, double mz, float speed, float randomness) {
+        float velocity = MathHelper.sqrt_double(mx * mx + my * my + mz * mz);
+        mx /= velocity;
+        my /= velocity;
+        mz /= velocity;
+        mx += random.nextGaussian() * 0.0075D * randomness;
+        my += random.nextGaussian() * 0.0075D * randomness;
+        mz += random.nextGaussian() * 0.0075D * randomness;
+        mx *= speed;
+        my *= speed;
+        mz *= speed;
+        ball.xd = mx;
+        ball.yd = my;
+        ball.zd = mz;
+        float velocityHorizontal = MathHelper.sqrt_double(mx * mx + mz * mz);
+        ball.yRotO = ball.yRot = (float)(Math.atan2(mx, mz) * 180.0D / Math.PI);
+        ball.xRotO = ball.xRot = (float)(Math.atan2(my, velocityHorizontal) * 180.0D / Math.PI);
+    }
+
     @Override
     protected void attackEntity(Entity entity, float distance) {
         if (distance < 10.0F) {
@@ -42,9 +63,9 @@ public class EntitySpaceSkeleton extends EntitySkeleton {
                     ++cannonball.y;
                     double d2 = entity.y + (double)entity.getHeadHeight() - 0.20000000298023224 - cannonball.y;
                     float f1 = MathHelper.sqrt_double(d * d + d1 * d1) * 0.2F;
-                    this.world.playSoundAtEntity(this, "random.bow", 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
+                    this.world.playSoundAtEntity(null, this, "random.bow", 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
                     this.world.entityJoinedWorld(cannonball);
-                    cannonball.setCannonballHeading(d, d2 + (double)f1, d1, 0.6F, 12.0F);
+                    setCannonballHeading(cannonball, d, d2 + (double)f1, d1, 0.7f, 0);
                 }
                 this.attackTime = 50;
             }

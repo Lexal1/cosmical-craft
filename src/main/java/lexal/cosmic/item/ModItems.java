@@ -10,48 +10,87 @@ import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.material.ArmorMaterial;
 import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tool.*;
+import net.minecraft.core.data.tag.Tag;
 import turniplabs.halplibe.helper.ArmorHelper;
-import turniplabs.halplibe.helper.ItemHelper;
+import turniplabs.halplibe.helper.ItemBuilder;
 
 public class ModItems {
     //items
-    public static final Item cheese = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemFood("cheese",UtilIdRegistrar.nextIdItem(),5,false),"cheese","cheese.png");
-    public static final Item burger = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemFood("burger",UtilIdRegistrar.nextIdItem(),20,true),"burger","hamburger.png");
-    public static final Item moondust = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("dust.moon", UtilIdRegistrar.nextIdItem()),"moondust","moondust.png");
-    public static final Item starsteel = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("ingot.star", UtilIdRegistrar.nextIdItem()), "ingot.starsteel", "meteor_ingot.png");
-    public static final Item crudestarsteel = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("crude.star", UtilIdRegistrar.nextIdItem()), "crude.starsteel", "crude_meteor_ingot.png");
-    public static final Item rawmeteor = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("ore.meteor", UtilIdRegistrar.nextIdItem()), "ore.meteor", "raw_meteor_ore.png");
+    public static final Item cheese = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/cheese")
+        .build(new ItemFood("cheese", UtilIdRegistrar.nextIdItem(), 5, 10, false, 8));
+    public static final Item burger = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/hamburger")
+        .build(new ItemFood("burger", UtilIdRegistrar.nextIdItem(), 20, 6, true, 8));
+    public static final Item moondust = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/moondust")
+        .build(new Item("dust.moon", UtilIdRegistrar.nextIdItem()));
+    public static final Item starsteel = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_ingot")
+        .build(new Item("ingot.starsteel", UtilIdRegistrar.nextIdItem()));
+    public static final Item crudestarsteel = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/crude_meteor_ingot")
+        .build(new Item("crude.starsteel", UtilIdRegistrar.nextIdItem()));
+    public static final Item rawmeteor = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/raw_meteor_ore")
+        .build(new Item("ore.meteor", UtilIdRegistrar.nextIdItem()));
 
     //armor
-    public static final ArmorMaterial armorspacesuit = ArmorHelper.createArmorMaterial("space",256,50.0f,50.0f,50.0f,75.0f);
-    public static final Item armorHelmetSpace = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemArmor("Space Helmet", UtilIdRegistrar.nextIdItem(), armorspacesuit, 0), "armor.helmet.space", "space_helmet.png").withTags(ModItemTags.breathable);
-    public static final Item armorChestplateSpace = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemArmor("Space Suit", UtilIdRegistrar.nextIdItem(), armorspacesuit, 1), "armor.chestplate.space", "space_suit.png").withTags(ModItemTags.breathable);
-    public static final Item armorLeggingsSpace = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemArmor("Space Leggings", UtilIdRegistrar.nextIdItem(), armorspacesuit, 2), "armor.leggings.space", "space_pants.png").withTags(ModItemTags.breathable);
-    public static final Item armorBootsSpace = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemArmor("Space Boots", UtilIdRegistrar.nextIdItem(), armorspacesuit, 3), "armor.boots.space", "space_boots.png").withTags(ModItemTags.breathable);
+    public static final ArmorMaterial armorspacesuit = ArmorHelper.createArmorMaterial(CosmicCraft.MOD_ID, "space", 256, 50.0f, 50.0f, 50.0f, 75.0f);
+    public static final Item armorHelmetSpace = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/space_helmet")
+        .build(new ItemArmor("armor.helmet.space", UtilIdRegistrar.nextIdItem(), armorspacesuit, 0))
+        .withTags(ModItemTags.breathable);
+    public static final Item armorChestplateSpace = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/space_suit")
+        .build(new ItemArmor("armor.chestplate.space", UtilIdRegistrar.nextIdItem(), armorspacesuit, 1))
+        .withTags(ModItemTags.breathable);
+    public static final Item armorLeggingsSpace = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/space_pants")
+        .build(new ItemArmor("armor.leggings.space", UtilIdRegistrar.nextIdItem(), armorspacesuit, 2))
+        .withTags(ModItemTags.breathable);
+    public static final Item armorBootsSpace = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/space_boots")
+        .build(new ItemArmor("armor.boots.space", UtilIdRegistrar.nextIdItem(), armorspacesuit, 3))
+        .withTags(ModItemTags.breathable);
 
 
-    public static final ArmorMaterial crashlandingsuit = ArmorHelper.createArmorMaterial("space",8,0.0f,0.0f,0.0f,500.0f);
-    public static final Item armorBootsCrash = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemArmor("Crash Boots", UtilIdRegistrar.nextIdItem(), crashlandingsuit, 3), "armor.boots.crash", "crash_landing_boots.png").withTags(ModItemTags.breathable);
-    public static final Item bucketAir = ItemHelper.createItem(CosmicCraft.MOD_ID, new ItemBucketGas("Air Bucket", UtilIdRegistrar.nextIdItem(), ModBlocks.gasAirFlowing.id, 255), "bucket.air").setIconCoord(10,4);
+    public static final ArmorMaterial crashlandingsuit = ArmorHelper.createArmorMaterial(CosmicCraft.MOD_ID, "space", 8, 0.0f, 0.0f, 0.0f, 500.0f);
+    public static final Item armorBootsCrash = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/crash_landing_boots")
+        .build(new ItemArmor("armor.boots.crash", UtilIdRegistrar.nextIdItem(), crashlandingsuit, 3))
+        .withTags((Tag<Item>[])new Tag[] {ModItemTags.breathable});
+    public static final Item bucketAir = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/air_bucket")
+        .build(new ItemBucketGas("airbucket", UtilIdRegistrar.nextIdItem(), ModBlocks.gasAirFlowing.id, 255));
 
     //tools
-    public static final ToolMaterial starsteeltool = new ToolMaterial().setDurability(5068).setEfficiency(10f, 20f).setMiningLevel(4).setBlockHitDelay(3).setDamage(6);
-    public static final Item toolSwordStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolSword("starsteelsword",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.sword.star","meteor_sword.png");
-    public static final Item toolPickaxeStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolPickaxe("starsteelpick",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.pickaxe.star","meteor_pickaxe.png");
-    public static final Item toolAxeStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolAxe("starsteelaxe",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.axe.star","meteor_axe.png");
-    public static final Item toolShovelStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolShovel("starsteelshovel",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.shovel.star","meteor_shovel.png");
-    public static final Item toolHoeStar = ItemHelper.createItem(CosmicCraft.MOD_ID,new ItemToolHoe("starsteelhoe",UtilIdRegistrar.nextIdItem(), starsteeltool),"tool.hoe.star","meteor_hoe.png");
-
-
-
-
-
+    public static final ToolMaterial starsteeltool = new ToolMaterial()
+        .setDurability(5068)
+        .setEfficiency(10f, 20f)
+        .setMiningLevel(4)
+        .setBlockHitDelay(3)
+        .setDamage(6);
+    public static final Item toolSwordStar = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_sword")
+        .build(new ItemToolSword("tool.sword.star", UtilIdRegistrar.nextIdItem(), starsteeltool));
+    public static final Item toolPickaxeStar = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_pickaxe")
+        .build(new ItemToolPickaxe("tool.pickaxe.star", UtilIdRegistrar.nextIdItem(), starsteeltool));
+    public static final Item toolAxeStar = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_axe")
+        .build(new ItemToolAxe("tool.axe.star", UtilIdRegistrar.nextIdItem(), starsteeltool));
+    public static final Item toolShovelStar = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_shovel")
+        .build(new ItemToolShovel("tool.shovel.star", UtilIdRegistrar.nextIdItem(), starsteeltool));
+    public static final Item toolHoeStar = new ItemBuilder(CosmicCraft.MOD_ID)
+        .setIcon("cosmic:item/meteor_hoe")
+        .build(new ItemToolHoe("tool.hoe.star", UtilIdRegistrar.nextIdItem(), starsteeltool));
 
     //spawn eggs
-    public static Item spaceZombieSpawnEgg = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("spawn.egg.spacezombie", UtilIdRegistrar.nextIdSpawnEggItem()), "spawn.egg.spacezombie", "unknown.png");
-    public static Item spaceSkeletonSpawnEgg = ItemHelper.createItem(CosmicCraft.MOD_ID, new Item("spawn.egg.spaceskeleton", UtilIdRegistrar.nextIdSpawnEggItem()), "spawn.egg.spaceskeleton", "unknown.png");
+    //public static Item spaceZombieSpawnEgg = new ItemBuilder(CosmicCraft.MOD_ID)//.setIcon("spawn.egg.spacezombie", "unknown.png").build(new Item("spawn.egg.spacezombie", UtilIdRegistrar.nextIdSpawnEggItem()));
+    //public static Item spaceSkeletonSpawnEgg = new ItemBuilder(CosmicCraft.MOD_ID)//.setIcon("spawn.egg.spaceskeleton", "unknown.png").build(new Item("spawn.egg.spaceskeleton", UtilIdRegistrar.nextIdSpawnEggItem()));
+
     public static void register() {
-        Block.glass.asItem().withTags(ModItemTags.breathable);
-        Block.glassTinted.asItem().withTags(ModItemTags.breathable);
     }
 }

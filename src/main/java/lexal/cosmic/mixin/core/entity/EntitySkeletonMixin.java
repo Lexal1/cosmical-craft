@@ -16,5 +16,4 @@ public class EntitySkeletonMixin extends EntityMonster {
     public boolean canBreatheUnderwater(){
         return true;
     }
-
 }

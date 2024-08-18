@@ -5,7 +5,7 @@ import net.minecraft.core.item.Item;
 
 public class UtilIdRegistrar {
     private static int curr_item_id = 0;
-    private static int curr_spawnegg_item_id = 0;
+    //private static int curr_spawnegg_item_id = 0;
     private static int curr_block_id = 0;
     private static boolean[] usedIds;
 
@@ -18,17 +18,17 @@ public class UtilIdRegistrar {
         }
         curr_item_id = itemId;
         curr_block_id = blockId;
-        curr_spawnegg_item_id = spawnEggItemID;
+        //curr_spawnegg_item_id = spawnEggItemID;
     }
 
     public static int nextIdItem() {
         throwException(curr_item_id);
         return curr_item_id++;
     }
-    public static int nextIdSpawnEggItem() {
+    /*public static int nextIdSpawnEggItem() {
         throwException(curr_spawnegg_item_id);
         return curr_spawnegg_item_id++;
-    }
+    }*/
     public static int nextIdBlock() {
         throwException(curr_block_id);
         return curr_block_id++;

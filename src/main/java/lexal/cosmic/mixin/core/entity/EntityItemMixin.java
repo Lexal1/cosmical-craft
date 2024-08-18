@@ -27,19 +27,7 @@ public class EntityItemMixin extends Entity {
         item.yd -= offset * gravity;
     }
 
-
-    @Shadow
-    protected void init() {
-
-    }
-
-    @Shadow
-    protected void readAdditionalSaveData(CompoundTag compoundTag) {
-
-    }
-
-    @Shadow
-    protected void addAdditionalSaveData(CompoundTag compoundTag) {
-
-    }
+    @Override public void readAdditionalSaveData(CompoundTag tag) {};
+    @Override public void addAdditionalSaveData(CompoundTag tag) {};
+    @Override protected void init() {};
 }

@@ -7,7 +7,8 @@ import net.minecraft.core.entity.monster.EntitySkeleton;
 import net.minecraft.core.world.biome.Biome;
 
 public class BiomeMoon extends Biome {
-    public BiomeMoon() {
+    public BiomeMoon(String name) {
+        super(name);
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

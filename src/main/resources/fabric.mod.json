@@ -19,6 +19,15 @@
   "entrypoints": {
     "main": [
       "lexal.cosmic.CosmicCraft"
+    ],
+    "beforeGameStart": [
+      "lexal.cosmic.CosmicCraft"
+    ],
+    "afterGameStart": [
+      "lexal.cosmic.CosmicCraft"
+    ],
+    "recipesReady": [
+      "lexal.cosmic.crafting.ModCraftingManager"
     ]
   },
   "mixins": [
@@ -27,8 +36,7 @@
 
   "depends": {
     "fabricloader": ">=0.13.3",
-    "halplibe": ">=2.2.0",
-    "prismaticlibe": ">=2.1.4"
+    "halplibe": ">=2.2.0"
   },
   "suggests": {
     "spawneggs": ">=1.1.0"
