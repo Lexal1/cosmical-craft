@@ -18,6 +18,6 @@ public abstract class DimensionMixin {
 	@Inject(method = "<clinit>", at = @At("TAIL"))
 	private static void addDimension(CallbackInfo ci){
 		ModDimensions.dimensionMoon = new Dimension("the-moon", Dimension.overworld, 3f, ModBlocks.portalmoon.id).setDefaultWorldType(ModWorldType.worldTypeMoon);
-		Dimension.registerDimension(4, ModDimensions.dimensionMoon);
+		Dimension.registerDimension(3, ModDimensions.dimensionMoon);
 	}
 }

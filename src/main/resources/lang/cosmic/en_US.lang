@@ -40,15 +40,15 @@ tile.cosmic.meteorrock.desc=Crushed up stone from the depths of space.
 tile.cosmic.meteorore.name=Meteoric Ore
 tile.cosmic.meteorore.desc=Meteorite nuggets embedded in meteoric stone.
 tile.cosmic.gas.air.flowing.name=Flowing Air
-tile.cosmic.gas.air.flowing.desc=Going with the flow.
+tile.cosmic.gas.air.flowing.desc=I knew it! I knew there was an air blo- Oh.
 tile.cosmic.gas.air.still.name=Still Air
-tile.cosmic.gas.air.still.desc=It's not windy.
+tile.cosmic.gas.air.still.desc=Despite everything, it's still air.
 tile.cosmic.sponge.gas.name=Gas Sponge
 tile.cosmic.sponge.gas.desc=Great for cleaning up a bad smell.
 tile.cosmic.machine.pressurizer.active.name=Active Pressurizer
-tile.cosmic.machine.pressurizer.active.desc=Adds air.
-tile.cosmic.machine.pressurizer.idle.name=Idle Pressurizer
-tile.cosmic.machine.pressurizer.idle.desc=Does not add air.
+tile.cosmic.machine.pressurizer.active.desc=Pressurizer? I 'ardly know 'er!
+tile.cosmic.machine.pressurizer.idle.name=Pressurizer
+tile.cosmic.machine.pressurizer.idle.desc=Adds air through the power of magic blocks.
 item.cosmic.airbucket.name=Air Bucket
 item.cosmic.airbucket.desc=I didn't know you could do that!
 
@@ -85,24 +85,21 @@ item.cosmic.cheese.name=Cheese
 item.cosmic.cheese.desc=What self-respecting moon doesn't have cheese?!
 item.cosmic.burger.name=Cheeseburger
 item.cosmic.burger.desc=Have it your way!
-item.cosmic.moondust.name=Moon Dust
-item.cosmic.moondust.desc=Turns out, ground up moon rocks are pure poison.
 item.cosmic.ore.meteor.name=Raw Meteoric Ore
 item.cosmic.ore.meteor.desc=Ore mined from a fallen meteor.
 item.cosmic.crude.starsteel.name=Crude Star Steel
-item.cosmic.crude.starsteel.desc=Melted down meteor material.
+item.cosmic.crude.starsteel.desc=Molten melted meteor material.
 item.cosmic.ingot.starsteel.name=Star Steel
 item.cosmic.ingot.starsteel.desc=Steel imbued with the power of the stars.
 item.cosmic.dust.moon.name=Moon Dust
-item.cosmic.dust.moon.desc=Dust from the moon
+item.cosmic.dust.moon.desc=Turns out, ground up moon rocks are pure poison.
 
 
 ###misc
 dimension.the-moon.name=Moon
 worldType.the-moon.default.name=Moon
 worldType.the-moon.default.desc=Start on the Moon,\nan inhospitable desert\norbiting the Overworld.
-worldType.moon.default.name=Moon
-worldType.moon.default.desc=Start on the Moon,\nan inhospitable desert\norbiting the Overworld.
+
 
 #optionals
 item.cosmic.spawn.egg.spacezombie.name=Space Zombie Spawn Egg

@@ -38,7 +38,7 @@ public class EntityLivingMixin {
     @ModifyVariable(method = "causeFallDamage(F)V", at = @At(value = "STORE"), ordinal = 0)
     private int changeFallDamage(int i){
         if (((EntityLiving)(Object)this).world.getWorldType() instanceof WorldTypeMoon){
-            return (int)((i * gravity) - (3 / gravity) + 3);
+            return (int)((i * gravity) - (3 / gravity) + 2);
         }
         return i;
     }
